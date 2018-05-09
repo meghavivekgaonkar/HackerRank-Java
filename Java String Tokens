@@ -1,0 +1,29 @@
+import java.util.StringTokenizer;
+
+public class BreakSentence {
+
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		String s="He is a very very good boy, isn't he?";
+		if(s.length()==0 || s.chars().allMatch(Character::isWhitespace)) {
+			System.out.println("0");
+		}else {
+			StringTokenizer st = new StringTokenizer(s, " ");
+			
+	        StringBuffer sb = new StringBuffer();
+	
+	        while(st.hasMoreElements()){
+	            sb.append(st.nextElement()).append(" ");
+	        }
+	
+	        s= sb.toString().trim();
+			String[] splitString = (s.split("[!,#$%?.~`&*_^'@\\s]+"));
+			
+			System.out.println(splitString.length);
+		        for (String string : splitString) {
+		            System.out.println(string);
+	        }
+		}
+
+   }
+}
