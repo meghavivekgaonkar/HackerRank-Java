@@ -1,0 +1,47 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Anagrams {
+	static boolean isAnagram(String a, String b) {
+        boolean flag=false;
+        a=a.toLowerCase();
+        b=b.toLowerCase();
+        if(a.length()!=b.length()) {
+        	flag=false;
+        }else {
+	        Map<Character,Integer> counter1=new HashMap<Character,Integer>();
+	        for(int i=0; i<a.length();i++) {
+	        	if(counter1.containsKey(a.charAt(i))) {
+	        		counter1.put(a.charAt(i), counter1.get(a.charAt(i)) + 1);
+	        	}else {
+	        		counter1.put(a.charAt(i), 1);
+	        	}
+	        }
+	        Map<Character,Integer> counter2=new HashMap<Character,Integer>();
+	        for(int i=0; i<b.length();i++) {
+	        	if(counter2.containsKey(b.charAt(i))) {
+	        		counter2.put(b.charAt(i), counter2.get(b.charAt(i)) + 1);
+	        	}else {
+	        		counter2.put(b.charAt(i), 1);
+	        	}
+	        }
+
+	        for(int i=0; i<a.length(); i++) {
+	        	if(counter1.get(a.charAt(i))==counter2.get(a.charAt(i))) {
+	        		flag=true;
+	        	}else {
+	        		flag=false;
+	        		break;
+	        	}
+	        }
+        }
+        
+        
+        return flag;
+    }
+	public static void main(String[] args) {
+		
+		System.out.println(isAnagram("ab", "abXY"));
+	}
+
+}
