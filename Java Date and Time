@@ -1,0 +1,55 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class GetDay {
+	    public static String getDay(String day, String month, String year) {
+	        String date=day+"/"+month+"/"+year;
+	        SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
+	        String week="";
+			try {
+				Date dt = format1.parse(date);
+				Calendar c = Calendar.getInstance();
+		        c.setTime(dt);
+		       
+		        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		        switch(dayOfWeek){
+		            case 1: week+="SUNDAY";
+		                    break;
+		            case 2: week+="MONDAY";
+		                    break;
+		            case 3: week+="TUESDAY";
+		                    break;
+		            case 4: week+="WEDNESDAY";
+		                    break;
+		            case 5: week+="THURSDAY";
+		                    break;
+		            case 6: week+="FRIDAY";
+		                    break;
+		            case 7: week+="SATURDAY";
+		                    break;
+		        }
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
+	        
+	        return week;
+	    }
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter month:");
+        String month = in.next();
+        System.out.println("Enter day:");
+        String day = in.next();
+        System.out.println("Enter year:");
+        String year = in.next();
+        
+        System.out.println(getDay(day, month, year));
+        in.close();
+	}
+
+}
