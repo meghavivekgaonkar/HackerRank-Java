@@ -1,0 +1,16 @@
+
+import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        BigInteger a,b;
+        Scanner s=new Scanner(System.in);
+        a=new BigInteger(s.next());
+        b=new BigInteger(s.next());
+        BigInteger c;
+        System.out.println(c = a.add(b));
+        System.out.println(c = a.multiply(b));
+    }
+}
